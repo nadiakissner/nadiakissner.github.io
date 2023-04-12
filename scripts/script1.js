@@ -1,14 +1,21 @@
-const mapaFetch = d3.json('barrios-caba.geojson')
-const dataFetch = d3.dsv(';', '/dataset.csv', d3.autoType)
-
+const mapaFetch = d3.json('../data/barrios-caba.geojson')
+const dataFetch = d3.dsv(';', '../data/dataset.csv', d3.autoType)
 
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   
-  const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) 
+  /* Agrupamos reclamos x barrio */
+  const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
   console.log('reclamosPorBarrio', reclamosPorBarrio)
+
+  barrios.features.forEach(d => {
+    let nombreBarrio = d.properties.BARRIO
+    let cantReclamos = reclamosPorBarrio.get(nombreBarrio).length
+    d.properties.DENUNCIAS = cantReclamos
+    console.log(nombreBarrio + ": " + cantReclamos)
+  })
+  
   
   let chartMap = Plot.plot({
-    // https://github.com/observablehq/plot#projection-options
     projection: {
       type: 'mercator',
       domain: barrios, // Objeto GeoJson a encuadrar
@@ -17,21 +24,36 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
       // Quantize continuo (cant. denuncias) -> discreto (cant. colores)
       type: 'quantize', 
       n: 10,
-      scheme: 'ylorbr',
-      label: 'Cantidad de reclamos',
+      scheme: 'purples',
+      label: 'Cantidad de denuncias',
       legend: true,
     },
     marks: [
       Plot.geo(barrios, {
         fill: d => {
           let nombreBarrio = d.properties.BARRIO
-          let cantidadReclamos = reclamosPorBarrio.get(nombreBarrio).length
-          return cantidadReclamos
+          let cantReclamos = reclamosPorBarrio.get(nombreBarrio).length
+          return cantReclamos
         },
         stroke: '#ccc',
         title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
       }),
+      Plot.text(
+        barrios.features,
+        Plot.centroid({
+          text: (d) => d.properties.BARRIO,
+          fill: (d) => d.properties.BARRIO == "PALERMO" ? "rgb(230, 230, 250)" : "black",
+          textAnchor: "center",
+          fontWeight: "bold",
+          fontSize: (d) => d.properties.DENUNCIAS > 300 ? 14 : 10,
+          dx: 4,
+          filter: (d) => d.properties.DENUNCIAS > 200
+
+        })
+      )
+      
     ],
+
   })
 
   /* Agregamos al DOM la visualización chartMap */
