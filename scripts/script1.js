@@ -5,7 +5,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   
   /* Agrupamos reclamos x barrio */
   const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
-  console.log('reclamosPorBarrio', reclamosPorBarrio)
+  
 
   barrios.features.forEach(d => {
     let nombreBarrio = d.properties.BARRIO

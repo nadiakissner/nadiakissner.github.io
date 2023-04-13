@@ -1,55 +1,59 @@
-d3.csv('dataset.csv', d3.autoType).then(data => {
-    let chart = Plot.plot({
-      
-      marks: [
-        Plot.barX(data, 
-          Plot.groupY(
-          { x: 'sum'},
-          { y: 'canal',
-            x: 'denuncias',
-            sort: {y: "x", reverse: true},
-          })
-        ),
-        Plot.text(data, {
-          x: 'cantidad',
-          y: 'canal',
-          text: 'canal',
-          fontSize: 14,
-          dy: -20,
-        }),
-        
-      ],
-      width: 800,
-      height: 400,
-      marginLeft: 160, 
-      marginRight: 100,
-      marginBottom: 50,
-      marginTop: 10,
-      zero: true,
-  
-      y: {
-        label: '',
-        labelOffset: 150,
-        insetLeft: 5
-      },
-      x: {
-        grid: true,
-        label: 'Cantidad de denuncias',
-        labelOffset: 40,
-        insetLeft: 7,
-        
-      },
-    
-      style: {
-        fontFamily: 'sans-serif',
-        fontSize: 14,
-        background: 'black',
-        color: 'white',
-      },
-      
-    
-    })
-    d3.select('#chart').append(() => chart)
-  })
+
+d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
   
 
+  let filteredData = data.filter(d => d["domicilio_barrio"] === "PALERMO");
+  console.log(filteredData);
+
+  let canales = d3.groups(filteredData, d => d.canal)
+    .map(d => {
+      return {
+        canal: d[0],
+        sum: d[1].length,
+      }
+    });
+
+  let chart = Plot.plot({
+    marks: [
+      Plot.barX(canales, {
+        x: 'sum',
+        y: 'canal',
+        sort: {y: 'x', reverse: true},
+        fill: d => (d.canal === "App BA 147" ? "purple" :"rgb(230, 230, 250)" && d.canal =="GCS Web" ? "rgb(230, 230, 250)" : "#848484"),
+      }),
+      Plot.text(canales, {
+        x: d => d.sum + 5,
+        y: 'canal',
+        text: d => d.sum,
+        fontWeight: 'bold',
+        fontSize: '14px',
+        fill: d => d.canal === "App BA 147" ? "#854a95" : "#848484",
+        dy: -2,
+      }),
+    ],
+    width: 800,
+    height: 300,
+    marginLeft: 200,
+    marginBottom: 40,
+    insetLeft: 20,
+    style: {
+      fontFamily: "Segoe UI",
+      fontSize: 14,
+      color: 'black',
+      fontWeight: 400,
+    },
+    x: {
+      label: 'Cantidad de denuncias',
+      labelOffset: 30,
+      ticks: 5,
+      tickFormat: d => `${d}`,
+      domain: [0, d3.max(canales, d => d.sum) * 1.1],
+    },
+    y: {
+      label: 'Canal de denuncia',
+      ticks: false,
+    },
+  })
+
+  d3.select("#chart2").append(() => chart);
+});
