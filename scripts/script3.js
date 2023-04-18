@@ -3,30 +3,22 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
 
     let filteredData = data.filter(d => d["domicilio_barrio"] === "PALERMO");
     console.log(filteredData);
-  
-    let horas = d3.groups(filteredData, d => d.hora_ingreso)
-      .map(d => {
-        return {
-          hora: d[0],
-          sum: d[1].length,
-        }
-      });
     
       let chart = Plot.plot({
         marks: [
-          Plot.line(horas, 
-            // Plot.binX(
-              { y: "sum",
-                x: "hora"}, 
-              // { x: "hora",  
-              //   stroke: "rebecapurple",
-              //   strokeWidth: 3,
-              //   strokeOpacity: 0.3,
-              //   marker: "circle",
-              //   r: 3,
-              // },
+          Plot.line(filteredData, 
+            Plot.binX(
+              { y: "count", title: d => d[0].hora_ingreso },
+              { x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
+                //thresholds: d3.timeHour,
+                // stroke: "rebecapurple",
+                // strokeWidth: 3,
+                // strokeOpacity: 0.3,
+                // marker: "circle",
+                // r: 2
+              }, 
             )
-          //)
+          )
         ],
 
         width: 800,
@@ -40,13 +32,15 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           grid: true,
           label: 'Reclamos',
           labelOffset: 75,
-          zero: true
+          zero: true,
+          domain: [0, 140]
         },
   
         x: {
+          type: 'time',
           label: 'Tiempo',
           labelOffset: 50,
-          tickFormat: 'd',
+          tickFormat: d3.timeFormat('%H'),
         },
       })
    
