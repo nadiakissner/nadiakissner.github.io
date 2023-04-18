@@ -10,18 +10,17 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
             Plot.binX(
               { y: "count", title: d => d[0].hora_ingreso },
               { x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
-                //thresholds: d3.timeHour,
-                // stroke: "rebecapurple",
-                // strokeWidth: 3,
-                // strokeOpacity: 0.3,
-                // marker: "circle",
-                // r: 2
+                thresholds: d3.utcHour,
+                strokeWidth: 3,
+                strokeOpacity: 0.5,
+                marker: "circle",
+                r: 0.5
               }, 
             )
           )
         ],
 
-        width: 800,
+        width: 1000,
         height: 400,
         insetLeft: 40,
         insetRight: 40,
@@ -33,14 +32,15 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           label: 'Reclamos',
           labelOffset: 75,
           zero: true,
-          domain: [0, 140]
+          domain: [0, 70]
         },
   
         x: {
           type: 'time',
           label: 'Tiempo',
           labelOffset: 50,
-          tickFormat: d3.timeFormat('%H'),
+          tickFormat: d3.timeFormat('%H:%M'),
+          ticks: 12
         },
       })
    
