@@ -40,19 +40,19 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
     insetLeft: 20,
     style: {
       fontFamily: "Segoe UI",
-      fontSize: 14,
+      fontSize: 18,
       color: 'black',
       fontWeight: 400,
     },
     x: {
-      label: 'Cantidad de denuncias',
+      label: 'Denuncias',
       labelOffset: 50,
       ticks: 5,
       tickFormat: d => `${d}`,
       domain: [0, d3.max(canales, d => d.sum) * 1.1],
     },
     y: {
-      label: 'Canal de denuncia',
+      label: '',
       ticks: false,
       labelOffset: 150
     },

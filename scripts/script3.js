@@ -40,11 +40,16 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         marginTop: 30,
         marginRight: 30,
         marginLeft: 100,
-
+      style: {
+          fontFamily: "Segoe UI",
+          fontSize: 18,
+          color: 'black',
+          fontWeight: 400,
+        },
         y: {
           grid: true,
           label: 'Reclamos',
-          labelOffset: 75,
+          labelOffset: 100,
           zero: true,
           domain: [0, 70]
         },
