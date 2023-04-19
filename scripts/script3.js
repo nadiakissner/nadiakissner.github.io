@@ -24,7 +24,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
                   { x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
                     thresholds: d3.utcHour,
                     marker: "circle",
-                    fill: "crimson",
+                    fill: "rgb(220, 120, 30)",
                     r: 7
                   }, 
                 )
