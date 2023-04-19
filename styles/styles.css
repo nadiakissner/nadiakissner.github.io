@@ -35,6 +35,11 @@ header{
     text-decoration: none;
     color: white;
 }
+#navegacion a:hover{
+    
+    color: rgb(0, 0, 0);
+    text-align: "center"
+}
 
 h1{
     color: rgb(255, 255, 255);
@@ -83,6 +88,8 @@ h2#G3{
     font-weight: 600;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+
 
 div#chart, #chart2, #chart3 {
     overflow-y: auto;
