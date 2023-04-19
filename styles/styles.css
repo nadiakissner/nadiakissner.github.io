@@ -3,7 +3,7 @@ body {
 }
 
 header{
-    background-color: rgb(62, 29, 138);
+    background-color: rgb(121, 92, 189);
 
     height: 150px;
     display: flex;
@@ -18,9 +18,12 @@ h1{
     font-size: 36px;
     text-align: center;
     margin-top: 20px;
+
 }
 h2{
+    margin-top: 15%;
     color: rgb(62, 29, 138);
+    margin-left: 15%;
   
 }
 div#bajadaGeneral {
@@ -30,9 +33,24 @@ div#bajadaGeneral {
 }
 
 h2#G2{
-    margin-top: 100px;
+    margin-top: 15%;
+    margin-left: 15%;
 }
 
 h2#G3{
-    margin-top: 100px;
+    margin-top: 15%;
+    margin-left: 15%;
+}
+
+div#chart, #chart2, #chart3 {
+    overflow-y: auto;
+   
+    margin-left: 15%;
+    margin-right: 30%;
+    margin-bottom: 10px;
+  }
+
+
+div#bajadaMapa, #bajadaG2, #bajadaG3{
+    margin-left: 15%;
 }
