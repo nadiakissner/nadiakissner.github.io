@@ -14,7 +14,8 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
                 strokeWidth: 3,
                 strokeOpacity: 0.5,
                 marker: "circle",
-                r: 0.5
+                r: 0.5,
+                stroke: "domicilio_barrio",
               }, 
             )
           )
@@ -24,8 +25,10 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         height: 400,
         insetLeft: 40,
         insetRight: 40,
-        marginBottom: 50,
+        marginBottom: 90,
         marginTop: 30,
+        marginRight: 30,
+        marginLeft: 100,
 
         y: {
           grid: true,
@@ -37,11 +40,15 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
   
         x: {
           type: 'time',
-          label: 'Tiempo',
+          label: 'Hora',
           labelOffset: 50,
           tickFormat: d3.timeFormat('%H:%M'),
           ticks: 12
         },
+
+        color: {
+          range: ["#54288f", "#54288f"]
+        }
       })
    
   
