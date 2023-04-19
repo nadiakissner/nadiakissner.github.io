@@ -2,13 +2,37 @@ body {
     font-family: Arial, Helvetica, sans-serif
 }
 
+header{
+    background-color: rgb(62, 29, 138);
+
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
 h1{
-    color: rgb(52, 22, 122);
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    text-align: center;
+    margin-top: 20px;
 }
 h2{
     color: rgb(62, 29, 138);
   
 }
-p {
-    font-family: 'Courier New', Courier, monospace
+div#bajadaGeneral {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+h2#G2{
+    margin-top: 100px;
+}
+
+h2#G3{
+    margin-top: 100px;
 }
