@@ -11,7 +11,6 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 #blog{
@@ -59,8 +58,10 @@ hr {
 }
 
 h2{
-    color: rgb(62, 29, 138);
+    color: rgb(223, 116, 15);
     margin-left: 15%;
+    font-weight: 600;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 div#bajadaGeneral {
@@ -72,11 +73,17 @@ div#bajadaGeneral {
 h2#G2{
     margin-top: 15%;
     margin-left: 15%;
+    color: rgb(223, 116, 15);
+    font-weight: 600;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 h2#G3{
     margin-top: 15%;
+    color: rgb(223, 116, 15);
     margin-left: 15%;
+    font-weight: 600;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 div#chart, #chart2, #chart3 {
