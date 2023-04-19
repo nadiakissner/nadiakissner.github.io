@@ -12,13 +12,24 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
               { x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
                 thresholds: d3.utcHour,
                 strokeWidth: 3,
-                strokeOpacity: 0.5,
-                marker: "circle",
-                r: 0.5,
+                strokeOpacity: 0.6,
                 stroke: "domicilio_barrio",
               }, 
             )
-          )
+          ),
+          Plot.dot(filteredData,
+            Plot.selectMaxY(
+                Plot.binX(
+                  { y: "count", title: d => d[0].hora_ingreso },
+                  { x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
+                    thresholds: d3.utcHour,
+                    marker: "circle",
+                    fill: "crimson",
+                    r: 7
+                  }, 
+                )
+            )
+          ),
         ],
 
         width: 1000,
@@ -54,4 +65,50 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
   
     d3.select("#chart3").append(() => chart);
   });
-  
+
+  Plot.plot({
+    marks: [
+      Plot.line(
+        data,
+        Plot.windowY(
+          { reduce: "mean", k: 7, anchor: "middle" },
+          Plot.binX(
+            { y: "sum" },
+            { x: "date", y: "price_in_usd", thresholds: d3.utcDay }
+          )
+        )
+      ),
+      Plot.dot(
+        data,
+        Plot.selectMaxY(
+          Plot.windowY(
+            { reduce: "mean", k: 7, anchor: "middle" },
+            Plot.binX(
+              { y: "sum" },
+              { x: "date", y: "price_in_usd", thresholds: d3.utcDay }
+            )
+          )
+        )
+      ),
+      Plot.text(
+        data,
+        Plot.selectMaxY(
+          Plot.windowY(
+            { reduce: "mean", k: 7, anchor: "middle" },
+            Plot.binX(
+              { y: "sum", text: "first" },
+              {
+                x: "date",
+                y: "price_in_usd",
+                thresholds: d3.utcDay,
+                text: (d) => `Peak sales: ${d3.utcFormat("%b %d")(d.date)}`,
+                textAnchor: "middle",
+                dy: -5
+              }
+            )
+          )
+        )
+      )
+    ],
+    width: 714
+  })
