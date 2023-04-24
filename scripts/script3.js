@@ -53,6 +53,8 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           labelOffset: 100,
           zero: true,
           domain: [0, 70],
+          line: true,
+          tickSize: 0
 
         },
   
@@ -61,6 +63,8 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           label: 'Hora',
           labelOffset: 50,
           tickFormat: d3.timeFormat('%H:%M'),
+          line: true,
+          ticks: 10,
         },
 
         color: {
