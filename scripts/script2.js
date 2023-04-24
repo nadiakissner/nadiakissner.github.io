@@ -36,7 +36,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
 
     width: 800,
     height: 400,
-    marginLeft: 200,
+    marginLeft: 150,
     marginBottom: 80,
     insetLeft: 20,
 
