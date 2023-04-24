@@ -33,14 +33,15 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         ],
 
         width: 1000,
-        height: 400,
+        height: 500,
         insetLeft: 40,
         insetRight: 40,
         marginBottom: 90,
         marginTop: 30,
         marginRight: 30,
         marginLeft: 100,
-      style: {
+
+        style: {
           fontFamily: "Segoe UI",
           fontSize: 18,
           color: 'black',
@@ -48,10 +49,11 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         },
         y: {
           grid: true,
-          label: 'Reclamos',
+          label: '',
           labelOffset: 100,
           zero: true,
-          domain: [0, 70]
+          domain: [0, 65],
+
         },
   
         x: {
@@ -59,7 +61,6 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           label: 'Hora',
           labelOffset: 50,
           tickFormat: d3.timeFormat('%H:%M'),
-          ticks: 12
         },
 
         color: {
@@ -70,50 +71,3 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
   
     d3.select("#chart3").append(() => chart);
   });
-
-  Plot.plot({
-    marks: [
-      Plot.line(
-        data,
-        Plot.windowY(
-          { reduce: "mean", k: 7, anchor: "middle" },
-          Plot.binX(
-            { y: "sum" },
-            { x: "date", y: "price_in_usd", thresholds: d3.utcDay }
-          )
-        )
-      ),
-      Plot.dot(
-        data,
-        Plot.selectMaxY(
-          Plot.windowY(
-            { reduce: "mean", k: 7, anchor: "middle" },
-            Plot.binX(
-              { y: "sum" },
-              { x: "date", y: "price_in_usd", thresholds: d3.utcDay }
-            )
-          )
-        )
-      ),
-      Plot.text(
-        data,
-        Plot.selectMaxY(
-          Plot.windowY(
-            { reduce: "mean", k: 7, anchor: "middle" },
-            Plot.binX(
-              { y: "sum", text: "first" },
-              {
-                x: "date",
-                y: "price_in_usd",
-                thresholds: d3.utcDay,
-                text: (d) => `Peak sales: ${d3.utcFormat("%b %d")(d.date)}`,
-                textAnchor: "middle",
-                dy: -5
-              }
-            )
-          )
-        )
-      )
-    ],
-    width: 714
-  })
