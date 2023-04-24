@@ -24,13 +24,13 @@ header{
     margin-left: 5%;
     float: left;
     font-weight: bold;
-    margin-top: 1%;
+    margin-top: 1.5%;
 }
 
 #encabezados {
     width: 100%;
     overflow: hidden;
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 #navegacion li {
@@ -53,7 +53,7 @@ h1{
     color: rgb(255, 255, 255);
     font-size: 40px;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 6%;
     font-family: 'Montserrat', sans-serif;
     font-weight: 1000;
     margin-left: 15%;
@@ -108,7 +108,6 @@ div#chart, #chart2, #chart3 {
 }
 div#chart {
     width: 45%;
-    height: auto;
 }
 
 div#chart2{
@@ -120,6 +119,7 @@ div#chart2{
     max-width: 800px;
     margin: auto;
     margin-top: 2%;
+    margin-bottom: 2%;
     font-family: 'Montserrat', sans-serif;
     
 }
@@ -142,5 +142,6 @@ footer {
 
 footer p{
     font-family: 'Montserrat', sans-serif;
+    font-size: 80%;
     margin-top: 3%;
 }
