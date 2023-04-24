@@ -37,7 +37,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
 
     width: 800,
     height: 400,
-    marginLeft: 155,
+    marginLeft: 140,
     marginBottom: 80,
     insetLeft: 20,
 
@@ -47,7 +47,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
       color: 'black',
       fontWeight: 400,
     },
-    
+
     x: {
       label: '',
       labelOffset: 50,

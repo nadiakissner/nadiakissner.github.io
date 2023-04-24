@@ -41,7 +41,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         marginBottom: 90,
         marginTop: 30,
         marginRight: 30,
-        marginLeft: 100,
+        marginLeft: 50,
 
         style: {
           fontFamily: "Montserrat",
