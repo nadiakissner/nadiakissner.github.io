@@ -52,8 +52,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           label: '',
           labelOffset: 100,
           zero: true,
-          domain: [0, 70],
-          line: true
+          domain: [0, 65],
 
         },
   
