@@ -37,9 +37,9 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
 
     width: 800,
     height: 400,
-    marginLeft: 140,
-    marginBottom: 80,
-    insetLeft: 20,
+    marginLeft: 120,
+    marginBottom: 40,
+    marginTop: 10,
 
     style: {
       fontFamily: "Montserrat",

@@ -39,7 +39,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
                   thresholds: d3.utcHour,
                   text: (d) => `Hora pico: 22hs - 23hs`,
                   textAnchor: "top",
-                  dy: -22,
+                  dy: -20,
                   fill: "rgb(220, 120, 30)",
                   fontWeight: "bold"
                   
@@ -49,14 +49,14 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           )
         ],
 
-        width: 1000,
-        height: 400,
-        insetLeft: 40,
-        insetRight: 40,
-        marginBottom: 90,
-        marginTop: 30,
+        width: 900,
+        height: 500,
+        insetLeft: 20,
+        insetRight: 30,
+        marginBottom: 40,
+        marginTop: 10,
         marginRight: 30,
-        marginLeft: 50,
+        marginLeft: 30,
 
         style: {
           fontFamily: "Montserrat",
@@ -71,7 +71,8 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           zero: true,
           domain: [0, 70],
           line: true,
-          tickSize: 0
+          tickSize: 0,
+          ticks: 8
 
         },
   
