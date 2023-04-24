@@ -46,15 +46,13 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
           fontWeight: "bold",
           fontSize: (d) => d.properties.DENUNCIAS > 400 ? 12 : 8,
           filter: (d) => d.properties.DENUNCIAS > 300,
-          // dy: 6, 
-          // dx: -5,
           textAnchor: "center",
         })
       )
       
     ],
     height: 500,
-    width: 400,
+    width: 500,
     marginTop: 2,
     marginBotton: 10,
     insetTop: 2,
