@@ -43,17 +43,21 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
         Plot.centroid({
           text: (d) => d.properties.BARRIO,
           fill: (d) => d.properties.BARRIO == "PALERMO" ? "rgb(230, 230, 250)" : "black",
-          textAnchor: "center",
           fontWeight: "bold",
-          fontSize: (d) => d.properties.DENUNCIAS > 300 ? 14 : 10,
-          dx: 4,
-          filter: (d) => d.properties.DENUNCIAS > 200
-
+          fontSize: (d) => d.properties.DENUNCIAS > 400 ? 12 : 8,
+          filter: (d) => d.properties.DENUNCIAS > 300,
+          // dy: 6, 
+          // dx: -5,
+          textAnchor: "center",
         })
       )
       
     ],
-
+    height: 500,
+    width: 400,
+    marginTop: 2,
+    marginBotton: 10,
+    insetTop: 2,
   })
 
   /* Agregamos al DOM la visualización chartMap */
