@@ -26,7 +26,11 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
       n: 10,
       scheme: 'purples',
       label: 'Cantidad de denuncias',
-      legend: true
+      legend: true,
+      style:{
+        fontFamily: 'Montserrat'
+      }
+      
     },
     
     marks: [
@@ -44,7 +48,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
         Plot.centroid({
           text: (d) => d.properties.BARRIO,
           fill: (d) => d.properties.BARRIO == "PALERMO" ? "rgb(230, 230, 250)" : "black",
-          fontSize: (d) => d.properties.DENUNCIAS > 400 ? 12 : 8,
+          fontSize: (d) => d.properties.DENUNCIAS > 400 ? 14 : 10,
           filter: (d) => d.properties.DENUNCIAS > 300,
           fontWeight: "bold",
           textAnchor: "center",
@@ -53,7 +57,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
       )
       
     ],
-
+    
     height: 500,
     width: 500,
     marginTop: 2,
