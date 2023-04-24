@@ -52,7 +52,9 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           label: '',
           labelOffset: 100,
           zero: true,
-          domain: [0, 65],
+          domain: [0, 70],
+          line: true,
+          tickSize: 0
 
         },
   
@@ -62,7 +64,6 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           labelOffset: 50,
           tickFormat: d3.timeFormat('%H:%M'),
           line: true,
-          nice: true,
           ticks: 10,
         },
 
