@@ -8,7 +8,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         marks: [
           Plot.line(filteredData, 
             Plot.binX(
-              { y: "count", title: d => d[0].hora_ingreso },
+              { y: "count", },
               { x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
                 thresholds: d3.utcHour,
                 strokeWidth: 3,
@@ -20,18 +20,33 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           Plot.dot(filteredData,
             Plot.selectMaxY(
                 Plot.binX(
-                  { y: "count", title: d => d[0].hora_ingreso },
+                  { y: "count"},
                   { x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
                     thresholds: d3.utcHour,
                     marker: "circle",
                     fill: "rgb(220, 120, 30)",
                     r: 7,
-                    text: (d) => `Reclamos: ${d3.utcFormat("%b %d")(d.date)}`,
-                    textAnchor: "middle",
                   }, 
                 )
             )
           ),
+          Plot.text(filteredData,
+            Plot.selectMaxY(
+              Plot.binX(
+                { y: "count", text: "first" },
+                {
+                  x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
+                  thresholds: d3.utcHour,
+                  text: (d) => `Hora pico: 22hs - 23hs`,
+                  textAnchor: "top",
+                  dy: -22,
+                  fill: "rgb(220, 120, 30)",
+                  fontWeight: "bold"
+                  
+                }
+              )
+            )
+          )
         ],
 
         width: 1000,
@@ -66,7 +81,6 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           labelOffset: 50,
           tickFormat: d3.timeFormat('%H:%M'),
           line: true,
-          ticks: 10,
         },
 
         color: {
