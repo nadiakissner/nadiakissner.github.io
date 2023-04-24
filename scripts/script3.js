@@ -25,7 +25,9 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
                     thresholds: d3.utcHour,
                     marker: "circle",
                     fill: "rgb(220, 120, 30)",
-                    r: 7
+                    r: 7,
+                    text: (d) => `Reclamos: ${d3.utcFormat("%b %d")(d.date)}`,
+                    textAnchor: "middle",
                   }, 
                 )
             )
@@ -42,8 +44,8 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         marginLeft: 100,
 
         style: {
-          fontFamily: "Segoe UI",
-          fontSize: 18,
+          fontFamily: "Montserrat",
+          fontSize: 16,
           color: 'black',
           fontWeight: 400,
         },
@@ -75,3 +77,51 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
   
     d3.select("#chart3").append(() => chart);
   });
+
+
+  Plot.plot({
+    marks: [
+      Plot.line(
+        data,
+        Plot.windowY(
+          { reduce: "mean", k: 7, anchor: "middle" },
+          Plot.binX(
+            { y: "sum" },
+            { x: "date", y: "price_in_usd", thresholds: d3.utcDay }
+          )
+        )
+      ),
+      Plot.dot(
+        data,
+        Plot.selectMaxY(
+          Plot.windowY(
+            { reduce: "mean", k: 7, anchor: "middle" },
+            Plot.binX(
+              { y: "sum" },
+              { x: "date", y: "price_in_usd", thresholds: d3.utcDay }
+            )
+          )
+        )
+      ),
+      Plot.text(
+        data,
+        Plot.selectMaxY(
+          Plot.windowY(
+            { reduce: "mean", k: 7, anchor: "middle" },
+            Plot.binX(
+              { y: "sum", text: "first" },
+              {
+                x: "date",
+                y: "price_in_usd",
+                thresholds: d3.utcDay,
+                text: (d) => `Peak sales: ${d3.utcFormat("%b %d")(d.date)}`,
+                textAnchor: "middle",
+                dy: -5
+              }
+            )
+          )
+        )
+      )
+    ],
+    width: 714
+  })

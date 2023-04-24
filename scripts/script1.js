@@ -26,8 +26,9 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
       n: 10,
       scheme: 'purples',
       label: 'Cantidad de denuncias',
-      legend: true,
+      legend: true
     },
+    
     marks: [
       Plot.geo(barrios, {
         fill: d => {
@@ -43,19 +44,24 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
         Plot.centroid({
           text: (d) => d.properties.BARRIO,
           fill: (d) => d.properties.BARRIO == "PALERMO" ? "rgb(230, 230, 250)" : "black",
-          fontWeight: "bold",
           fontSize: (d) => d.properties.DENUNCIAS > 400 ? 12 : 8,
           filter: (d) => d.properties.DENUNCIAS > 300,
+          fontWeight: "bold",
           textAnchor: "center",
+          fontFamily: 'Montserrat',
         })
       )
       
     ],
+
     height: 500,
     width: 500,
     marginTop: 2,
     marginBotton: 10,
     insetTop: 2,
+    fontFamily: 'Montserrat',
+
+
   })
 
   /* Agregamos al DOM la visualización chartMap */

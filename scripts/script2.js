@@ -27,7 +27,8 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         text: d => d.sum,
         textAnchor: "top",
         fontWeight: 'bold',
-        fontSize: '24px',
+        fontFamily: 'Montserrat',
+        fontSize: '18px',
         fill: d => (d.canal === "App BA 147" ? "#54288f" : "#848484" && d.canal =="GCS Web" ? "#7567af" : "#848484"),
         dy: -2,
         dx: 30
@@ -36,23 +37,25 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
 
     width: 800,
     height: 400,
-    marginLeft: 150,
+    marginLeft: 155,
     marginBottom: 80,
     insetLeft: 20,
 
     style: {
-      fontFamily: "Segoe UI",
-      fontSize: 18,
+      fontFamily: "Montserrat",
+      fontSize: 14,
       color: 'black',
       fontWeight: 400,
     },
+    
     x: {
       label: '',
       labelOffset: 50,
       ticks: 5,
       tickFormat: d => `${d}`,
       domain: [0, d3.max(canales, d => d.sum) * 1.1],
-      tickSize: 0
+      tickSize: 0,
+    
     },
     y: {
       label: '',
