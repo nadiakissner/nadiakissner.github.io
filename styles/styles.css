@@ -74,7 +74,7 @@ h2{
     max-width: 800px;
     margin: auto;
     font-weight: 600;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
 }
 div#bajadaGeneral {
@@ -88,13 +88,14 @@ h2#G2{
     margin: auto;
     color: rgb(0, 0, 0);
     font-weight: 600;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    
 }
 
 h2#G3{
     color: rgb(0, 0, 0);
     font-weight: 600;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     max-width: 800px;
     margin: auto;
 }
