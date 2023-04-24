@@ -101,4 +101,14 @@ div#chart, #chart2, #chart3 {
 
 div#bajadaMapa, #bajadaG2, #bajadaG3{
     margin-left: 15%;
+    
 }
+
+
+footer {
+    background-color: #a6a1b7;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
