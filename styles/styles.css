@@ -21,12 +21,19 @@ header{
     
 }
 #blog{
+    position: relative;
     color: rgb(255, 255, 255);
+    text-decoration: underline;
+    padding-left: 50px;
     margin-left: 5%;
     float: left;
     font-weight: bold;
     margin-top: 1.5%;
+    max-width: 800px;
+
+
 }
+
 
 #encabezados {
     width: 100%;
@@ -108,7 +115,7 @@ div#chart, #chart2, #chart3 {
     margin: auto;
 }
 div#chart {
-    width: 45%;
+    width: 40%;
 }
 
 div#chart2{
@@ -136,15 +143,25 @@ p#explicacion{
 footer {
     background-color: #856ca7;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     margin-top: 15%;
+    margin-bottom: 0%;
 }
 
 footer p{
     font-family: 'Montserrat', sans-serif;
     font-size: 80%;
-    margin-top: 3%;
+    margin-top: 4%;  
 }
 
+#icono{
+    max-width: 150px;
+    max-height: 150px;
 
+}
+#media{
+    max-width: 150px;
+    max-height: 100px;
+    margin-bottom: 0%;
+}
