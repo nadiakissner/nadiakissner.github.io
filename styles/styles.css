@@ -17,14 +17,13 @@ header{
 #navegacion {
     list-style: none;
     float: right; 
-    margin-right: 5%;
+    margin-right: 6%;
     margin-top: 0;
     
 }
 #blog{
     position: relative;
     color: rgb(255, 255, 255);
-    text-decoration: underline;
     padding-left: 50px;
     margin-left: 5%;
     float: left;
@@ -34,7 +33,6 @@ header{
 
 
 }
-
 
 #encabezados {
     width: 100%;
@@ -166,11 +164,7 @@ footer p{
 
 #icono{
     max-width: 150px;
-    max-height: 150px;
+    max-height: 120px;
 
 }
-#media{
-    max-width: 150px;
-    max-height: 100px;
-    margin-bottom: 0%;
-}
+
