@@ -19,7 +19,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         x: 'sum',
         y: 'canal',
         sort: {y: 'x', reverse: true},
-        fill: d => (d.canal === "App BA 147" ? "#54288f" :"#848484" && d.canal =="GCS Web" ? "#7567af" : "#848484"),
+        fill: d => (d.canal === "App BA 147" ? "#54288f" :"#848484" && d.canal =="GCS Web" ? "#f08a48" : "#848484"),
       }),
       Plot.text(canales, {
         x: d => d.sum + 5,
@@ -29,7 +29,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
         fontWeight: 'bold',
         fontFamily: 'Montserrat',
         fontSize: '18px',
-        fill: d => (d.canal === "App BA 147" ? "#54288f" : "#848484" && d.canal =="GCS Web" ? "#7567af" : "#848484"),
+        fill: d => (d.canal === "App BA 147" ? "#54288f" : "#848484" && d.canal =="GCS Web" ? "#f08a48" : "#848484"),
         dy: -2,
         dx: 30
       }),
@@ -37,15 +37,14 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
 
     width: 800,
     height: 400,
-    marginLeft: 140,
-    marginBottom: 80,
-    insetLeft: 20,
+    marginLeft: 120,
+    marginBottom: 40,
+    marginTop: 10,
 
     style: {
       fontFamily: "Montserrat",
       fontSize: 14,
-      color: 'black',
-      fontWeight: 400,
+      color: 'black'
     },
 
     x: {

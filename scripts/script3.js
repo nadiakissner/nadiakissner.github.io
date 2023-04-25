@@ -24,7 +24,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
                   { x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
                     thresholds: d3.utcHour,
                     marker: "circle",
-                    fill: "rgb(220, 120, 30)",
+                    fill: "#f08a48",
                     r: 7,
                   }, 
                 )
@@ -40,7 +40,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
                   text: (d) => `Hora pico: 22hs - 23hs`,
                   textAnchor: "top",
                   dy: -22,
-                  fill: "rgb(220, 120, 30)",
+                  fill: "#f08a48",
                   fontWeight: "bold"
                   
                 }
@@ -49,14 +49,14 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           )
         ],
 
-        width: 1000,
-        height: 400,
-        insetLeft: 40,
-        insetRight: 40,
-        marginBottom: 90,
-        marginTop: 30,
+        width: 900,
+        height: 500,
+        insetLeft: 20,
+        insetRight: 30,
+        marginBottom: 40,
+        marginTop: 10,
         marginRight: 30,
-        marginLeft: 50,
+        marginLeft: 30,
 
         style: {
           fontFamily: "Montserrat",
@@ -71,7 +71,8 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
           zero: true,
           domain: [0, 70],
           line: true,
-          tickSize: 0
+          tickSize: 0,
+          ticks: 8
 
         },
   
@@ -92,50 +93,3 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
     d3.select("#chart3").append(() => chart);
   });
 
-
-  Plot.plot({
-    marks: [
-      Plot.line(
-        data,
-        Plot.windowY(
-          { reduce: "mean", k: 7, anchor: "middle" },
-          Plot.binX(
-            { y: "sum" },
-            { x: "date", y: "price_in_usd", thresholds: d3.utcDay }
-          )
-        )
-      ),
-      Plot.dot(
-        data,
-        Plot.selectMaxY(
-          Plot.windowY(
-            { reduce: "mean", k: 7, anchor: "middle" },
-            Plot.binX(
-              { y: "sum" },
-              { x: "date", y: "price_in_usd", thresholds: d3.utcDay }
-            )
-          )
-        )
-      ),
-      Plot.text(
-        data,
-        Plot.selectMaxY(
-          Plot.windowY(
-            { reduce: "mean", k: 7, anchor: "middle" },
-            Plot.binX(
-              { y: "sum", text: "first" },
-              {
-                x: "date",
-                y: "price_in_usd",
-                thresholds: d3.utcDay,
-                text: (d) => `Peak sales: ${d3.utcFormat("%b %d")(d.date)}`,
-                textAnchor: "middle",
-                dy: -5
-              }
-            )
-          )
-        )
-      )
-    ],
-    width: 714
-  })
