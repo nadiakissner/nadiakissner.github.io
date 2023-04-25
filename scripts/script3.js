@@ -37,7 +37,7 @@ d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
                 {
                   x: d => d3.timeParse('%H:%M:%S')(d.hora_ingreso),
                   thresholds: d3.utcHour,
-                  text: (d) => `Hora pico: 22hs - 23hs`,
+                  text: (d) => `22hs - 23hs`,
                   textAnchor: "top",
                   dy: -22,
                   fill: "#f08a48",
