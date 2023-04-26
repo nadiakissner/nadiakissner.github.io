@@ -1,5 +1,5 @@
-const mapaFetch = d3.json('data/barrios-caba.geojson')
-const dataFetch = d3.dsv(';', 'data/dataset.csv', d3.autoType)
+const mapaFetch = d3.json('https://nadiakissner.github.io/Parcial_1_Dataviz_Galarza_Kissner/data/barrios-caba.geojson')
+const dataFetch = d3.dsv(';', 'https://nadiakissner.github.io/Parcial_1_Dataviz_Galarza_Kissner/data/dataset.csv', d3.autoType)
 
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   
