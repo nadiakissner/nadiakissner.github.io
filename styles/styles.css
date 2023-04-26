@@ -23,11 +23,34 @@ header{
 
 #inicio {
     color: rgb(255, 255, 255);
-    font-size: large;
+    font-size: 14px;
     font-weight: normal;
     max-width: 800px;
     margin-top: 1%;
-    margin-left: 40%;
+}
+
+#notas {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: normal;
+    max-width: 800px;
+    margin-top: 1%;
+}
+
+#acerca {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: normal;
+    max-width: 800px;
+    margin-top: 1%;
+}
+
+#contacto {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: normal;
+    max-width: 800px;
+    margin-top: 1%;
 }
 
 #blog{
