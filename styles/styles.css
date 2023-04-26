@@ -6,7 +6,7 @@ body {
 header{
     background-size: cover;
     background-position: center;
-    height: 190px;
+    height: 120px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -17,9 +17,17 @@ header{
 #navegacion {
     list-style: none;
     font-size: larger;
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+#inicio {
+    color: rgb(255, 255, 255);
+    font-size: large;
+    font-weight: normal;
     max-width: 800px;
-    margin-left: 25%;
-    margin-top: 5%;
+    margin-top: 1%;
+    margin-left: 50%;
 }
 
 #blog{
@@ -27,6 +35,8 @@ header{
     font-size: larger;
     font-weight: bold;
     max-width: 800px;
+    margin-top: 1.5%;
+    margin-left: 2%;
 }
 
 #navegacion li {
@@ -49,21 +59,12 @@ h1{
     color: rgb(0, 0, 0);
     font-size: 40px;
     text-align: center;
-    margin-top: 2%;
-    margin-bottom: 3%;
     font-family: 'Montserrat', sans-serif;
     font-weight: 1000;
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
-hr {
-    border: none; 
-    height: 1.5px; 
-    background-color: #a6a1b7;
-    margin-bottom: 2%;
-    margin-top: 2%;
     max-width: 800px;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 1%;
 }
 
 h2{
@@ -72,14 +73,14 @@ h2{
     margin: auto;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 3%;
+    margin-top: 5%;
 }
 
 div#bajadaGeneral {
     font-family: 'Montserrat', sans-serif;
     color: rgb(0, 0, 0);
     margin-top: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
     text-align: center;
     max-width: 800px;
     margin: auto
@@ -92,7 +93,7 @@ h2#G2{
     font-family: 'Montserrat', sans-serif;
     max-width: 800px;
     margin: auto;
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 h2#G3{
@@ -130,7 +131,7 @@ div#chart2{
 p#explicacion{
     max-width: 800px;
     margin: auto;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
     margin-top: 2%;
     font-family: 'Montserrat', sans-serif;
 }
@@ -140,7 +141,6 @@ footer {
     color: #fff;
     padding: 10px;
     text-align: center;
-    margin-top: 15%;
     margin-bottom: 0%;
     margin-top: 5%;
 }
@@ -148,12 +148,12 @@ footer {
 footer p{
     font-family: 'Montserrat', sans-serif;
     font-size: 80%;
-    margin-top: 4%;  
+    margin-top: 2%;  
 }
 
 #icono{
     max-width: 150px;
-    max-height: 120px;
-
+    max-height: 140px;
+    margin-bottom: 2%;
 }
 
