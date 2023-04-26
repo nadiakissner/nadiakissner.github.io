@@ -1,4 +1,4 @@
-d3.dsv(';','../data/dataset.csv', d3.autoType).then(data =>  {
+d3.dsv(';','data/dataset.csv', d3.autoType).then(data =>  {
     console.log(data)
 
     let filteredData = data.filter(d => d["domicilio_barrio"] === "PALERMO");
